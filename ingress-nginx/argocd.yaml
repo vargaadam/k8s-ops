@@ -1,0 +1,12 @@
+
+project: default
+source:
+  repoURL: 'https://kubernetes.github.io/ingress-nginx'
+  targetRevision: 3.*
+  chart: ingress-nginx
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: ingress-nginx
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true

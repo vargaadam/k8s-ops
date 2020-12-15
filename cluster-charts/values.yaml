@@ -1,2 +1,3 @@
 cluster: https://kubernetes.default.svc
 project: default
+alias: staging

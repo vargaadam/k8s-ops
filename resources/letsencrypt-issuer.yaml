@@ -1,15 +1,13 @@
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod-{{ .Values.alias }}
+  name: letsencrypt-prod
   namespace: cert-manager
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
 spec:
   acme:
     email: info@v7m.hu
     privateKeySecretRef:
-      name: letsencrypt-prod-{{ .Values.alias }}
+      name: letsencrypt-prod
     server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
     - http01:
@@ -19,13 +17,13 @@ spec:
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-stage-{{ .Values.alias }}
+  name: letsencrypt-stage
   namespace: cert-manager
 spec:
   acme:
     email: info@v7m.hu
     privateKeySecretRef:
-      name: letsencrypt-stage-{{ .Values.alias }}
+      name: letsencrypt-stage
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
     - http01:

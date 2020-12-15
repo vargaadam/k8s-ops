@@ -4,6 +4,6 @@ kind: Kustomization
 nameSuffix: staging
 
 resources:
-  - ../cluster-charts/templates/application-cert-manager.yaml
-  - ../cluster-charts/templates/application-ingress-nginx.yaml
-  - ../cluster-charts/templates/application-letsencrypt-issuer.yaml
+  - ../../cluster-charts/templates/application-cert-manager.yaml
+  - ../../cluster-charts/templates/application-ingress-nginx.yaml
+  - ../../cluster-charts/templates/application-letsencrypt-issuer.yaml

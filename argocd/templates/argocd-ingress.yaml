@@ -4,21 +4,21 @@ metadata:
   name: argocd-server-ingress
   namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: { { .Values.issuer } }
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-  - host: argocd.v7m.hu
-    http:
-      paths:
-      - backend:
-          serviceName: argocd-server
-          servicePort: https
-        path: /
+    - host: { { .Values.domain } }
+      http:
+        paths:
+          - backend:
+              serviceName: argocd-server
+              servicePort: https
+            path: /
   tls:
-  - hosts:
-    - argocd.v7m.hu
-    secretName: argocd-secret
+    - hosts:
+        - { { .Values.domain } }
+      secretName: argocd-secret

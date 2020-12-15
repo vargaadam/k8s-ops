@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: letsencrypt-issuer-{{ .Values.alias }}
+  name: letsencrypt-issuer
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

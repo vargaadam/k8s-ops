@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-v7m-ingress-production
+  name: v7m-infra-production
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: git@github.com:vargaadam/k8s-ops.git
     targetRevision: HEAD
-    path: resources/v7m/argocd
+    path: resources/v7m/infra
   destination:
     server: {{ .Values.cluster }} 
     namespace: argocd

@@ -1,2 +1,2 @@
-resources/v7m/registry/registry-creds.txt
-resources/v7m/registry/htpasswd
+utils/docker-registry/registry-creds.txt
+utils/docker-registry/htpasswd

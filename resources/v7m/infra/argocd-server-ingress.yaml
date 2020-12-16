@@ -14,10 +14,10 @@ spec:
     - host: argocd.v7m.hu
       http:
         paths:
-          - backend:
+          - path: /
+            backend:
               serviceName: argocd-server
               servicePort: https
-            path: /
   tls:
     - hosts:
         - argocd.v7m.hu

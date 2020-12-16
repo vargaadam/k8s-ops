@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: letsencrypt-issuer
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:    
+  project: {{ .Values.project }}
+  source:
+    repoURL: git@github.com:vargaadam/k8s-ops.git
+    targetRevision: HEAD
+    path: letsencrypt-issuer
+  destination:
+    namespace: cert-manager
+    server: {{ .Values.cluster }} 
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

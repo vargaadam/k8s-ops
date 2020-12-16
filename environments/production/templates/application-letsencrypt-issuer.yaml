@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: git@github.com:vargaadam/k8s-ops.git
     targetRevision: HEAD
-    path: letsencrypt-issuer
+    path: resources/letsencrypt-issuer
   destination:
     namespace: cert-manager
     server: {{ .Values.cluster }} 

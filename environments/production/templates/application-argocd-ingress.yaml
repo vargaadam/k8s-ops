@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-ingress-production
+  # You'll usually want to add your resources to the argocd namespace.
+  namespace: argocd
+  # Add a this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:    
+  project: {{ .Values.project }}
+  source:
+    repoURL: git@github.com:vargaadam/k8s-ops.git
+    targetRevision: HEAD
+    path: resources/argocd-ingress
+  destination:
+    server: {{ .Values.cluster }} 
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

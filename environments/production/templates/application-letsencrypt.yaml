@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: letsencrypt-issuer-production
+  name: letsencrypt-production
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: git@github.com:vargaadam/k8s-ops.git
     targetRevision: HEAD
-    path: resources/letsencrypt-issuer
+    path: resources/letsencrypt
   destination:
     namespace: cert-manager
     server: {{ .Values.cluster }} 

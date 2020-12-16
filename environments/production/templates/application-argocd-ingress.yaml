@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: git@github.com:vargaadam/k8s-ops.git
     targetRevision: HEAD
-    path: resources/argocd
+    path: resources/argocd-ingress
   destination:
     server: {{ .Values.cluster }} 
     namespace: argocd

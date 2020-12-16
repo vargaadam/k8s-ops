@@ -21,4 +21,4 @@ spec:
   tls:
   - hosts:
     - registry.v7m.hu
-    secretName: registry.example.com-cert
+    secretName: registry.v7m.hu-secret

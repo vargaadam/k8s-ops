@@ -1,19 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bootstrap-cluster
+  name: apps-production
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
     helm:
       valueFiles:
       - values.yaml
-    path: cluster-charts
+    path: environments/production
     repoURL: git@github.com:vargaadam/k8s-ops.git
     targetRevision: HEAD
-  syncPolicy:
-    automated: {}

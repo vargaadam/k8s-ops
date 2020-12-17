@@ -10,6 +10,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
+    - host: v7m.hu
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: v7m-web-service
+              servicePort: 80
     - host: www.v7m.hu
       http:
         paths:
@@ -19,5 +26,6 @@ spec:
               servicePort: 80
   tls:
     - hosts:
+        - v7m.hu
         - www.v7m.hu
       secretName: v7m-web-secret

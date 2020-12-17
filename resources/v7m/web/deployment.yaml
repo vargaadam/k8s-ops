@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v7m-web
+  namespace: v7m
+  labels:
+    app: v7m-web
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: v7m-web
+    spec:
+      containers:
+        - name: v7m-web
+          image: registry.v7m.hu/v7m:latest
+          ports:
+            - containerPort: 5000

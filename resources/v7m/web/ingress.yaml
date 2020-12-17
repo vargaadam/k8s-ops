@@ -15,8 +15,8 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: v7m-web
-              servicePort: https
+              serviceName: v7m-web-service
+              servicePort: 80
   tls:
     - hosts:
         - www.v7m.hu

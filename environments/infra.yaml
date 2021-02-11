@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: infra-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        revision: HEAD
+        repoURL: https://github.com/infra-team/cluster-deployments.git
+        directories:
+          - path: components/infra/*
+  template:
+    metadata:
+      name: "{{path.basename}}"
+    spec:
+      project: default
+      source:
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        targetRevision: HEAD
+        path: "{{path}}"
+      destination:
+        server: http://kubernetes.default.svc
+        namespace: "{{path.basename}}"

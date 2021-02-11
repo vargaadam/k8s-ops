@@ -1,0 +1,7 @@
+namespace: argocd
+
+resources:
+  - namespace.yaml
+  - install.yaml
+  - ingress.yaml
+  - applicationset-install.yaml

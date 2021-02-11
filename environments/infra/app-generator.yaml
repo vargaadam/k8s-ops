@@ -9,7 +9,7 @@ spec:
         revision: HEAD
         repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
-          - path: cluster-components/common/*
+          - path: cluster-components/architecture/*
           - path: cluster-components/ci-cd/*
   template:
     metadata:

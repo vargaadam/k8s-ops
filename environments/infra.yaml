@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         revision: HEAD
-        repoURL: https://github.com/infra-team/cluster-deployments.git
+        repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
           - path: components/infra/*
   template:
@@ -20,5 +20,5 @@ spec:
         targetRevision: HEAD
         path: "{{path}}"
       destination:
-        server: http://kubernetes.default.svc
+        server: https://kubernetes.default.svc
         namespace: "{{path.basename}}"

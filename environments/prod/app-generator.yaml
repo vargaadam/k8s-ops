@@ -22,3 +22,7 @@ spec:
       destination:
         name: civo-prod
         namespace: "{{path.basename}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

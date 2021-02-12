@@ -1,3 +1,7 @@
 resources:
   - ../common/
   - ingress.yaml
+
+replicas:
+  - name: v7m-portfolio
+    count: 1

@@ -6,6 +6,9 @@
 kustomize build .\argocd | kubectl apply -f -
 ```
 
+- port forward the argocd-server `kubectl port-forward <argocd-server-pod-name> <local-port>:<service-port>`
+
+
 ## Install ArgoCD CLI
 
 
@@ -17,9 +20,10 @@ https://argoproj.github.io/argo-cd/cli_installation/
 ```
 argocd login localhost:<local-port> --grpc-web
 ```
-> `admin:<argocd-server-pod-name>`
+- **user: admin**
+- **password: `kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2`**
 
-> https://github.com/argoproj/argo-cd/issues/2580
+> `--grpc-web` flag is needed because of https://github.com/argoproj/argo-cd/issues/2580
 
 ## Add git-ops repo
 

@@ -30,7 +30,8 @@ argocd login localhost:<local-port> --grpc-web
 ## Add clusters
 
 ```
-argocd cluster add `cluster-name`
+argocd cluster add <stage-cluster-name> --name stage
+argocd cluster add <prod-cluster-name> --name prod
 ```
 
 ## Bootstrap

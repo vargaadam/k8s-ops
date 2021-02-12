@@ -20,5 +20,5 @@ spec:
         targetRevision: HEAD
         path: "{{path}}"
       destination:
-        name: civo-prod
+        name: prod
         namespace: "{{path.basename}}"

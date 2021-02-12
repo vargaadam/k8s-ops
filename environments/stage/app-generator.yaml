@@ -20,5 +20,5 @@ spec:
         targetRevision: HEAD
         path: "{{path}}"
       destination:
-        name: civo-stage
+        name: stage
         namespace: "{{path.basename}}"

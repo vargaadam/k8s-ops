@@ -39,6 +39,7 @@ ingress:
   annotations: 
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
   labels: {}
   tls:
     # Secrets must be manually created in the namespace.

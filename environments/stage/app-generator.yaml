@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: infra-apps
+  name: stage-apps
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
           - path: cluster-components/architecture/*
   template:
     metadata:
-      name: "infra-{{path.basename}}"
+      name: "stage-{{path.basename}}"
     spec:
       project: default
       source:
@@ -20,5 +20,5 @@ spec:
         targetRevision: HEAD
         path: "{{path}}"
       destination:
-        name: in-cluster
+        name: civo-stage
         namespace: "{{path.basename}}"

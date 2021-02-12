@@ -9,14 +9,14 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
-    - host: v7m.hu
+    - host: staging.v7m.hu
       http:
         paths:
           - path: /
             backend:
               serviceName: v7m-portfolio-service
               servicePort: 80
-    - host: www.v7m.hu
+    - host: www.staging.v7m.hu
       http:
         paths:
           - path: /
@@ -25,6 +25,6 @@ spec:
               servicePort: 80
   tls:
     - hosts:
-        - v7m.hu
-        - www.v7m.hu
+        - staging.v7m.hu
+        - www.staging.v7m.hu
       secretName: v7m-portfolio-secret

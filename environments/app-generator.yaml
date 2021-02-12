@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app-generator
+spec:
+  generators:
+    - git:
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        revision: HEAD
+        files:
+          - path: "apps/**/config.json"
+  template:
+    metadata:
+      name: "{{cluster.name}}-{{app.name}}"
+    spec:
+      project: "{{project}}"
+      source:
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        targetRevision: HEAD
+        path: "{{app.path}}"
+      destination:
+        server: "{{cluster.name}}"
+        namespace: "{{app.namespace}}"

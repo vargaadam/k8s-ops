@@ -2,3 +2,4 @@ resources:
   - infra/
   - stage/
   - prod/
+  - app-generator.yaml

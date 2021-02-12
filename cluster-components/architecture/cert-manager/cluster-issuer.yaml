@@ -1,8 +1,6 @@
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: letsencrypt-prod
   namespace: cert-manager
 spec:
@@ -19,8 +17,6 @@ spec:
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: letsencrypt-stage
   namespace: cert-manager
 spec:

@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: app-generator
+  namespace: argocd
 spec:
   generators:
     - git:
@@ -19,5 +20,8 @@ spec:
         targetRevision: HEAD
         path: "{{app.path}}"
       destination:
-        server: "{{cluster.name}}"
+        name: "{{cluster.name}}"
         namespace: "{{app.namespace}}"
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

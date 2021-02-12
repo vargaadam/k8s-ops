@@ -1,12 +1,11 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: v7m-web-ingress
+  name: v7m-portfolio-ingress
   namespace: v7m
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
@@ -15,17 +14,17 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: v7m-web-service
+              serviceName: v7m-portfolio-service
               servicePort: 80
     - host: www.v7m.hu
       http:
         paths:
           - path: /
             backend:
-              serviceName: v7m-web-service
+              serviceName: v7m-portfolio-service
               servicePort: 80
   tls:
     - hosts:
         - v7m.hu
         - www.v7m.hu
-      secretName: v7m-web-secret
+      secretName: v7m-portfolio-secret

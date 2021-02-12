@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: v7m-web
+  name: v7m-portfolio
   namespace: v7m
   labels:
-    app: v7m-web
+    app: v7m-portfolio
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: v7m-web
+      app: v7m-portfolio
   template:
     metadata:
       labels:
-        app: v7m-web
+        app: v7m-portfolio
     spec:
       containers:
-        - name: v7m-web
+        - name: v7m-portfolio
           image: registry.v7m.hu/v7m:latest
           ports:
             - containerPort: 5000

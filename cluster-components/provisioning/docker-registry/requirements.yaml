@@ -1,4 +1,4 @@
 dependencies:
-  - name: twuni/docker-registry
+  - name: docker-registry
     version: 2.7.1
     repository: https://helm.twun.io

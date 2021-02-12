@@ -1,2 +1,60 @@
 resources:
   - install.yaml
+
+# https://github.com/argoproj/argo-cd/issues/3714
+
+patchesJson6902:
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRole
+      name: ingress-nginx-admission
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: ingress-nginx-admission
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      group: batch
+      version: v1
+      kind: Job
+      name: ingress-nginx-admission-create
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      group: batch
+      version: v1
+      kind: Job
+      name: ingress-nginx-admission-patch
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: Role
+      name: ingress-nginx-admission
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: RoleBinding
+      name: ingress-nginx-admission
+      namespace: ingress-nginx
+    path: no-helm-hooks.json
+
+  - target:
+      version: v1
+      kind: ServiceAccount
+      name: ingress-nginx-admission
+      namespace: ingress-nginx
+    path: no-helm-hooks.json

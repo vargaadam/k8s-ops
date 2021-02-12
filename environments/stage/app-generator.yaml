@@ -22,3 +22,6 @@ spec:
       destination:
         name: stage
         namespace: "{{path.basename}}"
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

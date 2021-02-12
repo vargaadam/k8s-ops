@@ -1,6 +1,8 @@
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: letsencrypt-prod
   namespace: cert-manager
 spec:
@@ -10,13 +12,15 @@ spec:
       name: letsencrypt-prod
     server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
-    - http01:
-        ingress:
-          class: nginx
+      - http01:
+          ingress:
+            class: nginx
 ---
 apiVersion: cert-manager.io/v1alpha3
 kind: ClusterIssuer
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: letsencrypt-stage
   namespace: cert-manager
 spec:
@@ -26,6 +30,6 @@ spec:
       name: letsencrypt-stage
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
-    - http01:
-       ingress:
-         class:  nginx
+      - http01:
+          ingress:
+            class: nginx

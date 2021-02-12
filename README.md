@@ -28,7 +28,7 @@ argocd login localhost:<local-port> --grpc-web
 ## Add git-ops repo
 
  ```
- argocd repo add <git-ssh-url> --insecure-ignore-host-key --ssh-private-key-path <path-to-ssh-private-key>
+ argocd repo add git@github.com:vargaadam/k8s-ops.git --insecure-ignore-host-key --ssh-private-key-path <path-to-ssh-private-key>
  ```
 
 ## Add clusters

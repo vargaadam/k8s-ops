@@ -1,20 +1,18 @@
-# Install ArgoCD
+# Clusters bootstrap
+
+## Install ArgoCD
 
 ```
 kustomize build .\argocd | kubectl apply -f -
 ```
-> port forward argocd-server `kubectl port-forward <argocd-server-pod-name> <local-port>:<service-port>`
-
-
-# Clusters bootstrap
 
 ## Install ArgoCD CLI
 
-```
-https://argoproj.github.io/argo-cd/cli_installation/
-```
 
-## Login
+https://argoproj.github.io/argo-cd/cli_installation/
+
+
+## Login in
 
 ```
 argocd login localhost:<local-port> --grpc-web
@@ -22,6 +20,12 @@ argocd login localhost:<local-port> --grpc-web
 > `admin:<argocd-server-pod-name>`
 
 > https://github.com/argoproj/argo-cd/issues/2580
+
+## Add git-ops repo
+
+ ```
+ argocd repo add <git-ssh-url> --insecure-ignore-host-key --ssh-private-key-path <path-to-ssh-private-key>
+ ```
 
 ## Add clusters
 
@@ -34,3 +38,4 @@ argocd cluster add `cluster-name`
 ```
 kustomize build .\environments | kubectl apply -f -
 ```
+

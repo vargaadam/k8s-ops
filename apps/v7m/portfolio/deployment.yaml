@@ -20,3 +20,10 @@ spec:
           image: registry.v7m.hu/v7m:latest
           ports:
             - containerPort: 5000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 250m
+              memory: 250Mi

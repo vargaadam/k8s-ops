@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: v7m-portfolio
-          image: registry.v7m.hu/v7m:latest
+          image: registry.infra.v7m.hu/v7m:latest
           ports:
             - containerPort: 5000
           resources:

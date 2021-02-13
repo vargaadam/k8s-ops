@@ -44,3 +44,10 @@ argocd cluster add <prod-cluster-name> --name prod
 kustomize build .\environments | kubectl apply -f -
 ```
 
+## Notes
+
+### Secure Docker-registry 
+
+- Generate `htpasswd` with `docker run --entrypoint htpasswd registry:2.7.0 -Bbn <user> <pass>` and change the secret value.
+- Create a imagePullSecret for the appropriate cluster : `kubectl create secret docker-registry regcred --docker-server=<registry.your_domain> --docker-username=<user> --docker-password=<pass>`
+- registry-cred will pick up the cred and populate it to the service accounts

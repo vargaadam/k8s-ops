@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-    - host: argocd.infra.v7m.hu
+    - host: argocd.v7m.hu
       http:
         paths:
           - path: /
@@ -20,5 +20,5 @@ spec:
               servicePort: https
   tls:
     - hosts:
-        - argocd.infra.v7m.hu
-      secretName: argocd-secret
+        - argocd.v7m.hu
+      secretName: argocd-secret-tls

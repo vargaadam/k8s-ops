@@ -27,4 +27,4 @@ spec:
     - hosts:
         - v7m.hu
         - www.v7m.hu
-      secretName: v7m-portfolio-secret
+      secretName: v7m-portfolio-secret-tls

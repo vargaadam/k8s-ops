@@ -70,7 +70,7 @@ storage: filesystem
 #tlsSecretName: docker-registry-secret-tls
 secrets:
   haSharedSecret: ""
-  # htpasswd: "change-me"
+  htpasswd: "change-me"
 # Secrets for Azure
 #   azure:
 #     accountName: ""

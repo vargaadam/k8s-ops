@@ -23,6 +23,11 @@ spec:
       destination:
         name: in-cluster
         namespace: "{{path.basename}}"
+      ignoreDifferences:
+        - kind: Secret
+          name: infra-docker-registry-secret
+          jsonPointers:
+            - /data/htpasswd
       syncPolicy:
         syncOptions:
           - CreateNamespace=true

@@ -10,6 +10,7 @@ spec:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
           - path: cluster-components/architecture/*
+          - path: cluster-components/utils/*
   template:
     metadata:
       name: "prod-{{path.basename}}"

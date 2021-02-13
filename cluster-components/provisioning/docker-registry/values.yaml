@@ -67,7 +67,7 @@ persistence:
 storage: filesystem
 
 # Set this to name of secret for tls certs
-tlsSecretName: docker-registry-secret-tls
+#tlsSecretName: docker-registry-secret-tls
 secrets:
   haSharedSecret: ""
   htpasswd: "change-me"

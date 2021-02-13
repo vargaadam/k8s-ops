@@ -1,3 +1,5 @@
+namespace: registry-creds
+
 resources:
   - install.yaml
   - cluster-pull-secret.yaml

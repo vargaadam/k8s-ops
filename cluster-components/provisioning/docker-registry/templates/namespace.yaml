@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    alexellis.io/registry-creds.ignore: "1"
-  name: docker-registry

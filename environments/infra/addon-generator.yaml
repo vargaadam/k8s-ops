@@ -9,28 +9,8 @@ spec:
         revision: HEAD
         repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
-          - path: cluster-components/provisioning/*
-        template:
-          metadata:
-            name: {}
-          spec:
-            project: default
-            source:
-              repoURL: git@github.com:vargaadam/k8s-ops.git
-              targetRevision: HEAD
-              path: "{{path}}"
-            destination: {}
-            ignoreDifferences:
-              - kind: Secret
-                name: infra-docker-registry-secret
-                jsonPointers:
-                  - /data/htpasswd
-                  - /data/haSharedSecret
-    - git:
-        revision: HEAD
-        repoURL: git@github.com:vargaadam/k8s-ops.git
-        directories:
           - path: cluster-components/architecture/*
+          - path: cluster-components/provisioning/*
   template:
     metadata:
       name: "infra-{{path.basename}}"
@@ -43,6 +23,14 @@ spec:
       destination:
         name: in-cluster
         namespace: "{{path.basename}}"
+      ignoreDifferences:
+        - kind: Secret
+          name: infra-docker-registry-secret
+          jsonPointers:
+            - /data/htpasswd
+            - /data/haSharedSecret
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
+        automated:
+          prune: true

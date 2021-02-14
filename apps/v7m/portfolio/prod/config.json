@@ -7,8 +7,5 @@
         "name": "v7m-portfolio",
         "namespace": "v7m",
         "path": "apps/v7m/portfolio/prod"
-    },
-    "syncPolicy": {
-        "automated": false
     }
 }

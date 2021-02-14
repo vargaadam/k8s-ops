@@ -10,7 +10,7 @@
     },
     "syncPolicy": {
         "automated": {
-            "prune": true
+            "prune": "true"
         }
     }
 }

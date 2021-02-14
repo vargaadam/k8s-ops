@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: stage-addons
+  name: app-generator
   namespace: argocd
 spec:
   generators:
@@ -17,7 +17,7 @@ spec:
           - path: "apps/**/stage/config.json"
         template:
           metadata:
-            name: {}
+            name: "{{cluster.name}}-{{app.name}}"
           spec:
             project: "{{project}}"
             source:
@@ -43,4 +43,3 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-        automated: {}

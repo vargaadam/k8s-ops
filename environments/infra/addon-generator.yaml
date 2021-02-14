@@ -30,8 +30,28 @@ spec:
         revision: HEAD
         repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
-          - path: cluster-components/architecture/*
           - path: cluster-components/ci-cd/*
+        template:
+          metadata:
+            name: "infra-{{path.basename}}"
+          spec:
+            project: default
+            source:
+              repoURL: git@github.com:vargaadam/k8s-ops.git
+              targetRevision: HEAD
+              path: "{{path}}"
+            destination: {}
+            ignoreDifferences:
+              - kind: CustomResourceDefinition
+                group: apiextensions.k8s.io
+                jsonPointers:
+                  - /spec/preserveUnknownFields
+    - git:
+        revision: HEAD
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        directories:
+          - path: cluster-components/architecture/*
+
   template:
     metadata:
       name: "infra-{{path.basename}}"

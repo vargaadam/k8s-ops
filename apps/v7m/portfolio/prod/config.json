@@ -1,8 +1,5 @@
 {
     "project": "default",
-    "cluster": {
-        "name": "prod"
-    },
     "app": {
         "name": "v7m-portfolio",
         "namespace": "v7m",

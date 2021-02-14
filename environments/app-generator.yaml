@@ -9,8 +9,25 @@ spec:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         revision: HEAD
         files:
-          - path: "apps/**/config.json"
-
+          - path: "apps/**/prod/config.json"
+    - git:
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        revision: HEAD
+        files:
+          - path: "apps/**/stage/config.json"
+        template:
+          metadata:
+            name: {}
+          spec:
+            project: "{{project}}"
+            source:
+              repoURL: git@github.com:vargaadam/k8s-ops.git
+              targetRevision: HEAD
+              path: "{{app.path}}"
+            destination: {}
+            syncPolicy:
+              automated:
+                prune: true
   template:
     metadata:
       name: "{{cluster.name}}-{{app.name}}"
@@ -26,4 +43,4 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-        automated: "{{syncPolicy.automated}}"
+        automated: null

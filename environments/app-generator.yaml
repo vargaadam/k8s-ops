@@ -10,6 +10,7 @@ spec:
         revision: HEAD
         files:
           - path: "apps/**/config.json"
+
   template:
     metadata:
       name: "{{cluster.name}}-{{app.name}}"
@@ -25,3 +26,4 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
+        automated: "{{syncPolicy.automated}}"

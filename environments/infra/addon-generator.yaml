@@ -31,6 +31,7 @@ spec:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         directories:
           - path: cluster-components/architecture/*
+          - path: cluster-components/ci-cd/*
   template:
     metadata:
       name: "infra-{{path.basename}}"

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: stage-apps
+  name: stage-addons
   namespace: argocd
 spec:
   generators:
@@ -26,3 +26,5 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
+        automated:
+          prune: true

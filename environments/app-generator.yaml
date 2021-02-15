@@ -9,6 +9,26 @@ spec:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         revision: HEAD
         files:
+          - path: "apps/app-projects/config.json"
+        template:
+          metadata:
+            name: "{{cluster.name}}-{{app.name}}"
+          spec:
+            project: "{{project}}"
+            source:
+              repoURL: git@github.com:vargaadam/k8s-ops.git
+              targetRevision: HEAD
+              path: "{{app.path}}"
+            destination: {}
+            syncPolicy:
+              syncOptions:
+                - CreateNamespace=false
+              automated:
+                prune: true
+    - git:
+        repoURL: git@github.com:vargaadam/k8s-ops.git
+        revision: HEAD
+        files:
           - path: "apps/namespaces/**/prod/config.json"
     - git:
         repoURL: git@github.com:vargaadam/k8s-ops.git

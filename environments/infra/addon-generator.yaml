@@ -55,28 +55,9 @@ spec:
         directories:
           - path: cluster-components/architecture/*
 
-    - git:
-        revision: HEAD
-        repoURL: git@github.com:vargaadam/k8s-ops.git
-        directories:
-          - path: apps/app-projects/*
-        template:
-          metadata:
-            name: "infra-{{path}}"
-          spec:
-            project: default
-            source:
-              repoURL: git@github.com:vargaadam/k8s-ops.git
-              targetRevision: HEAD
-              path: "{{path}}"
-            destination: {}
-            syncPolicy:
-              syncOptions:
-                - CreateNamespace=false
-
   template:
     metadata:
-      name: "infra-{{path}}"
+      name: "infra-{{path.basename}}"
     spec:
       project: default
       source:

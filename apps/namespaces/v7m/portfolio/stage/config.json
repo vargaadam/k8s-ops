@@ -6,6 +6,6 @@
     "app": {
         "name": "v7m-portfolio",
         "namespace": "v7m",
-        "path": "apps/v7m/portfolio/stage"
+        "path": "apps/namespaces/v7m/portfolio/stage"
     }
 }

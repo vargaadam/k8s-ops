@@ -1,0 +1,11 @@
+{
+    "project": "default",
+    "cluster": {
+        "name": "infra"
+    },
+    "app": {
+        "name": "app-projects",
+        "namespace": "argo-cd",
+        "path": "apps/app-projects"
+    }
+} 

@@ -6,8 +6,8 @@ metadata:
 spec:
   destinations:
   - namespace: v7m
-    destination: https://212.2.243.55:6443
+    server: https://212.2.243.55:6443
   - namespace: v7m
-    destination: https://212.2.243.191:6443
+    server: https://212.2.243.191:6443
   sourceRepos:
   - git@github.com:vargaadam/k8s-ops.git

@@ -23,8 +23,6 @@ spec:
             syncPolicy:
               syncOptions:
                 - CreateNamespace=false
-              automated:
-                prune: true
     - git:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         revision: HEAD

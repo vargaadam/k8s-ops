@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: v7m
+  namespace: argocd
+spec:
+  destinations:
+  - namespace: v7m
+    name: stage
+  - namespace: v7m
+    name: prod
+  sourceRepos:
+  - git@github.com:vargaadam/k8s-ops.git

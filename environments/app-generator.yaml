@@ -9,12 +9,12 @@ spec:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         revision: HEAD
         files:
-          - path: "apps/**/prod/config.json"
+          - path: "apps/namespaces/**/prod/config.json"
     - git:
         repoURL: git@github.com:vargaadam/k8s-ops.git
         revision: HEAD
         files:
-          - path: "apps/**/stage/config.json"
+          - path: "apps/namespaces/**/stage/config.json"
         template:
           metadata:
             name: "{{cluster.name}}-{{app.name}}"

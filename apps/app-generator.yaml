@@ -12,7 +12,7 @@ spec:
           - path: "apps/app-projects/config.json"
         template:
           metadata:
-            name: "{{cluster.name}}-{{app.name}}"
+            name: "infra-{{app.name}}"
           spec:
             project: "{{project}}"
             source:

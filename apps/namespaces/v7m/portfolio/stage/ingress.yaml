@@ -16,15 +16,7 @@ spec:
             backend:
               serviceName: v7m-portfolio-service
               servicePort: 80
-    - host: www.staging.v7m.hu
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: v7m-portfolio-service
-              servicePort: 80
   tls:
     - hosts:
         - staging.v7m.hu
-        - www.staging.v7m.hu
       secretName: v7m-portfolio-secret-tls
